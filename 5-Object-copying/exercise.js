@@ -5,11 +5,7 @@ const person1 = {
 };
 
 
-const person2 = {
-  firstName: "Jonh",
-  lastName: "Doe",
-  age: 25,
-};
+const person2 = person1;
 
 // Modify the property `firstName` of the `person2` in "Simon".
 person2.firstName = "Simon";
