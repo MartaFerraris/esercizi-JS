@@ -5,3 +5,5 @@ const person = {
 }
 
 // Print values of person using Object.keys
+console.log(Object.keys(person));
+console.log(Object.values(person));
