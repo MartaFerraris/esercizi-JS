@@ -5,5 +5,11 @@ const person = {
 }
 
 // Print values of person using Object.keys
-console.log(Object.keys(person));
-console.log(Object.values(person));
+let keys = Object.keys(person);
+let values = Object.values(person);
+let entries = Object.entries(person);
+
+for (let entry of entries) {
+  let [keys, values] = entry;
+  console.log(keys + ": " + values);
+}
