@@ -1,9 +1,18 @@
-async function asyncTodoList() {
-    try{
-        const result = await fetch('https://jsonplaceholder.typicode.com/todos');
-        const data = await result.json();
-        return data;
-    } catch(error) {
-        console.log(error);
+async function fetchTodos() {
+    try {
+        if(!Response.ok) {
+            throw new Error(`HTTP error! Status: ${ response.status }`);
+        }
+        const todos = await response.json();
+        return todos;
+    } catch (error) {
+        console.error('Error fetching');
+        return null;
     }
 }
+fetchTodos()
+    .then(todos => {
+        if(todos) {
+            console.log('Todos:', todos);
+        }
+    });
