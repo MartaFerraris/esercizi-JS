@@ -1,9 +1,10 @@
 async function fetchTodos() {
     try {
-        if(!Response.ok) {
+        const res = await fetch("https://jsonplaceholder.typicode.com/todos")
+        if(!res.ok) {
             throw new Error(`HTTP error! Status: ${ response.status }`);
         }
-        const todos = await response.json();
+        const todos = await res.json();
         return todos;
     } catch (error) {
         console.error('Error fetching');
