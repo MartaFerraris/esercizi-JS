@@ -1,27 +1,29 @@
 <html>
-  <body>
-    <div id="container">
-      <form>
-        <div>
-          <label>Title</label>
-          <input type="text" id="todo-title" />
-        </div>
-        <div>
-          <label>Completed</label>
-          <input type="checkbox" id="todo-completed" />
-        </div>
 
-        <button type="submit" id="submit-todo"></button>
-      </form>
-    </div>
-  </body>
+<body>
+  <div id="container">
+    <form id="postForm">
+      <div>
+        <label>Title</label>
+        <input type="text" id="todo-title" />
+      </div>
+      <div>
+        <label>Completed</label>
+        <input type="checkbox" id="todo-completed" />
+      </div>
+      
+      <button type="submit" id="submit-todo">Submit</button>
+    </form>
+  </div>
+</body>
+
 </html>
 
 <script>
   // code here
   async function createPost() {
-    const title = document.getElementById('title').value;
-    const completed = document.getElementById('completed').checked;
+    const title = document.getElementById('todo-title').value;
+    const completed = document.getElementById('todo-completed').checked;
     const postObject = {
       title,
       completed
@@ -39,10 +41,9 @@
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
       const newPost = await response.json();
-      document.getElementById('responseMessage').textContent = 'New Post created with ID:' + newPost.id;
-    } catch(error) {
+      console.log('New Post created with ID:' + newPost.id);
+    } catch (error) {
       console.error('Error creating post:', error);
-      document.getElementById('responseMessage').textContent = 'Error creating post.';
     }
   }
   document.getElementById('postForm').addEventListener('submit', function (event) {
