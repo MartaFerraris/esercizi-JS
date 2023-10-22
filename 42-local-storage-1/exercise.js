@@ -8,6 +8,5 @@ const handleLocalStorage = (user) => {
   localStorage.setItem('user', JSON.stringify(user));
 };
 
-handleLocalStorage(user);
-const local = JSON.parse(localStorage.getItem('user'));
+const local = handleLocalStorage(user);
 console.log('local:', local);
